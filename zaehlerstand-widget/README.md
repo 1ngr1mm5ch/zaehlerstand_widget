@@ -131,4 +131,12 @@ begründen. Viel Spaß!
 
 ## Meine Lösung
 
-_…_
+Meine Änderungen
+
+1. Überprüfung der Daten mithilfe der existierenden Befehle für den typecheck und linter
+2. Überprüfung des Frontends des Widgets
+3. Analyse des bestehenden Codes um festzustellen was ich unbedingt anpassen will
+4. Erstellen von interfaces angepasst unter Berücksichtigung der Daten aus der Mock API
+5. Anpassung des Zählerstandwidgets zur Verwendung der interfaces
+6. Auslagerung der einer Hilfsfunktion zur Validierung der Eingabe durch den User
+7.
