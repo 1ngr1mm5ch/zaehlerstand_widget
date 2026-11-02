@@ -133,10 +133,73 @@ begründen. Viel Spaß!
 
 Meine Änderungen
 
+Was hast du geändert und warum? (Stichpunkte reichen)
+
 1. Überprüfung der Daten mithilfe der existierenden Befehle für den typecheck und linter
 2. Überprüfung des Frontends des Widgets
 3. Analyse des bestehenden Codes um festzustellen was ich unbedingt anpassen will
 4. Erstellen von interfaces angepasst unter Berücksichtigung der Daten aus der Mock API
 5. Anpassung des Zählerstandwidgets zur Verwendung der interfaces
 6. Auslagerung der einer Hilfsfunktion zur Validierung der Eingabe durch den User
-7.
+7. Wiederherstellung der Reaktivität bei der Auswahl des Zählers
+8. Erstellen einer Sort Hilfsfunktion um die History von aktuell nach alt zu sortieren
+9. Auslagerung des inline Styles in den Styling Parts des Templates und Verbesserung der Barrierefreiheit
+10. Auslagerung der API Calls in ein Service API um den Code schlank zu halten
+11. Vorbereitung des Codes um mehrere Instanzen auf einer Seite zu haben
+12. Forms und Rules anpassen im CMS task der Aufgabe
+13. Anpassen der index.html und main.ts um mehrere Absätze zu verwenden
+
+Die ersten Schritte sollten dazu dienen mir ein klares Bild über den bestehenden Code zu verschaffen
+und die entsprechenden Mängel aus meiner Sicht zu identifizieren (1-3). Im weiteren Verlauf habe ich
+damit weitergemacht die Fehler des linter zu beheben und die Typisierung zu optimieren. Eigentlich
+hätte ich mich normalerweise dem Styling gewidmet, aber da dies bereits bestand mit inline Styling
+habe ich es zu diesem Zeitpunkt noch nicht angerührt. Da meine Vorgehensweise normalerweise Erstellung
+des HTML, Styling, Funktionalität und dann testing ist. Da jedoch zu dem Zeitpunkt ein gewisses Styling bestand
+und die Zeit knapp bemessen war, habe ich mich dazu entschlossen mich, um die Funktionalitäten zu kümmern.
+Als Erstes habe ich die Reaktivität des Widgets wiederhergestellt und damit begonnen die entsprechenden
+Stellen im Template anzupassen und ging dazu über mich um die Aufarbeitung der Daten zu widmen. Danach
+habe ich mich darum gekümmert, dass der Code den Normen der Barrierefreiheit entspricht und den inline
+Style entfernt. Für eine bessere Wartbarkeit und Übersichtlichkeit habe ich, die API calls als auch
+meine Hilfsfunktionen ausgelagert. Die Hilfsfunktionen sind ohne das Testing des Templates möglich und
+die nötigen API calls sind extrahiert.
+
+Welche Annahmen hast du getroffen?
+
+Aufgrund der kurzen Zeit für die AUfgabe habe ich mich dazu entschieden lediglich den User, darauf
+hinzuweisen, dass etwas schiefgelaufen ist bei der Übertragung und erwarte einen weiteren Sendeversuch
+des Nutzers. Hier könnte man entweder den Hilfetext anpassen wie der User damit umgehen kann.
+
+Was hast du bewusst weggelassen, und was würdest du mit mehr Zeit als Nächstes tun?
+
+Aktuell habe ich das Schreiben und Erweitern der bestehenden Tests vernachlässigt, da dies auch immer
+ein recht zeitintensiver Aufwand ist, wäre die man nächster Schritt. Da die Bereiche des Front- und
+Backends sehr gekapselt behandelt werden können. Danach würde ich mich dem Backend widmen. Nach dem
+Backend würde die Einbindung der Tests also Unit Tests, linter und typecheck in die Pipeline einbinden.
+Zu guter Letzt würde ich nochmal einen Blick über die UI werfen und über das Grundstyling hinaus erweitern.
+Eine weitere Möglichkeit wäre ist auch noch an der Barrierefreiheit stärker zu arbeiten.
+
+Wofür hast du KI-Werkzeuge genutzt?
+
+Ich habe KI Werkzeuge an verschiedenen Stellen genutzt, da ich in meiner IDE Webstorm google Antigravity integriert habe.
+Ich habe unter anderem den Autocomplete genutzt, als auch die KI zur Analyse meines Codes um
+möglichst die best Practices einzuhalten. Speziell bei der Erstellung der Forms.xml, rules.xml und
+dem HTML von Firstspirit habe ich sehr stark auf die Erstellung des Codes durch KI gestützt, da mir
+in diesem Bereich die Erfahrung fehlt im Umgang mit Firstspirit und in dieser kurzen Zeit mir nicht
+das nötige Wissen hätte aneignen können.
+
+Wie würdest du Widget-Skript, CMS und Backend in Produktion zusammenbringen
+(Auslieferung, Caching, Fehlerfälle, Sicherheit)? Eine halbe Seite reicht.
+
+Ich würde es als ein Ticket mit verschiedenen Subtasks herunterbrechen. Ich würde das Ticket in die folgenden Subtasks herunterbrechen.
+Erster Subtask Errstellung des Fronends mit dem entsprechenden Unit Tests und testing. Zweiter Subtask wäre die Erstellung des Backends und
+als dritten würde ich die Erstellung des Formvorlagen im CMS erstellen.
+
+Die Eingaben werden zum einen Lokal zwischengespeichert im Session Storage. Das Scriptbundle wird mit einem
+Hash ausgeliefert, um eine Einzigartigkeit für die laufende Session zu gewährleisten.
+
+Sollte das Script clientseitig ausfallen, wird ein Fallback ausgegeben, der ohne die Daten des CMS
+funktioniert. Dafür muss sollte beispielweise mithilfe der von Defaults beim Setzen der Props im Template
+gearbeitet werden.
+
+Um Sicherheiten zu gewährleisten würde ich nur bestimmte Eingaben in dem Inputfeld zulassen, damit die User kein
+JS in den Input ausführen können.
