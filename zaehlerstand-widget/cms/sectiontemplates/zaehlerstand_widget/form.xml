@@ -1,13 +1,48 @@
 <CMS_MODULE>
-  <CMS_INPUT_TEXT name="headline" hFill="yes">
+  <!-- 1. Überschrift (Pflichtfeld, max 80 Zeichen) -->
+  <CMS_INPUT_TEXT name="st_headline" hFill="yes" maxInputLength="80">
     <LANGINFOS>
-      <LANGINFO lang="*" label="Headline"/>
+      <LANGINFO lang="*" label="Überschrift" description="Überschrift des Widget-Absatzes (max. 80 Zeichen)"/>
     </LANGINFOS>
   </CMS_INPUT_TEXT>
 
-  <CMS_INPUT_TEXTAREA name="st_text">
+  <!-- 2. Einleitungstext (optional) -->
+  <CMS_INPUT_TEXTAREA name="st_text" hFill="yes">
     <LANGINFOS>
-      <LANGINFO lang="*" label="Text"/>
+      <LANGINFO lang="*" label="Einleitungstext" description="Optionaler Text oberhalb des Widgets"/>
     </LANGINFOS>
   </CMS_INPUT_TEXTAREA>
+
+  <!-- 3. Energieart (Pflichtfeld: Auswahl Gas oder Strom) -->
+  <CMS_INPUT_RADIOBUTTON name="st_energy_type" hFill="yes">
+    <ENTRIES>
+      <ENTRY value="gas">
+        <LANGINFOS>
+          <LANGINFO lang="*" label="Gas"/>
+        </LANGINFOS>
+      </ENTRY>
+      <ENTRY value="strom">
+        <LANGINFOS>
+          <LANGINFO lang="*" label="Strom"/>
+        </LANGINFOS>
+      </ENTRY>
+    </ENTRIES>
+    <LANGINFOS>
+      <LANGINFO lang="*" label="Energieart" description="Bestimmt, welche Zähler im Widget auswählbar sind"/>
+    </LANGINFOS>
+  </CMS_INPUT_RADIOBUTTON>
+
+  <!-- 4. Verlauf anzeigen (Checkbox: Ja/Nein) -->
+  <CMS_INPUT_CHECKBOX name="st_show_history">
+    <LANGINFOS>
+      <LANGINFO lang="*" label="Verlauf bisheriger Zählerstände anzeigen"/>
+    </LANGINFOS>
+  </CMS_INPUT_CHECKBOX>
+
+  <!-- 5. Erfolgsmeldung (optional, max 200 Zeichen) -->
+  <CMS_INPUT_TEXT name="st_success_message" hFill="yes" maxInputLength="200">
+    <LANGINFOS>
+      <LANGINFO lang="*" label="Individuelle Erfolgsmeldung" description="Wird nach erfolgreichem Absenden angezeigt (max. 200 Zeichen)"/>
+    </LANGINFOS>
+  </CMS_INPUT_TEXT>
 </CMS_MODULE>

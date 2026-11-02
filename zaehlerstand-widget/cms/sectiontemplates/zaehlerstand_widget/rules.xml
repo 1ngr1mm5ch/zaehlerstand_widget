@@ -1,2 +1,31 @@
 <RULES>
+  <!-- Regel 1: Überschrift ist ein Pflichtfeld -->
+  <ON_SAVE>
+    <WITH>
+      <NOT>
+        <PROPERTY source="st_headline" name="EMPTY"/>
+      </NOT>
+    </WITH>
+    <DO>
+      <VALIDATION scope="SAVE">
+        <PROPERTY source="st_headline" name="VALID"/>
+        <MESSAGE lang="*" text="Bitte geben Sie eine Überschrift ein."/>
+      </VALIDATION>
+    </DO>
+  </ON_SAVE>
+
+  <!-- Regel 2: Energieart ist ein Pflichtfeld -->
+  <ON_SAVE>
+    <WITH>
+      <NOT>
+        <PROPERTY source="st_energy_type" name="EMPTY"/>
+      </NOT>
+    </WITH>
+    <DO>
+      <VALIDATION scope="SAVE">
+        <PROPERTY source="st_energy_type" name="VALID"/>
+        <MESSAGE lang="*" text="Bitte wählen Sie eine Energieart (Gas oder Strom) aus."/>
+      </VALIDATION>
+    </DO>
+  </ON_SAVE>
 </RULES>

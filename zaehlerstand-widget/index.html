@@ -1,40 +1,45 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zählerstand melden – lokale Vorschau</title>
-    <style>
-      /* Stark vereinfachtes "Seiten-CSS" der Website – nicht Teil der Aufgabe. */
-      body { margin: 0; font-family: system-ui, sans-serif; color: #1a1a1a; background: #f6f7f9; }
-      header { background: #004b87; color: #fff; padding: 16px 24px; font-weight: 600; }
-      main { max-width: 960px; margin: 0 auto; padding: 24px; display: grid; gap: 24px; }
-    </style>
-  </head>
-  <body>
-    <!--
-      Diese Seite simuliert eine vom CMS (FirstSpirit) generierte Seite.
-      Das Markup der beiden Absätze unten entspricht der Ausgabe der AKTUELLEN
-      Absatzvorlage aus cms/sectiontemplates/zaehlerstand_widget/ – mit zwei
-      Instanzen auf derselben Seite.
-    -->
-    <header>GASAG Kundenportal · lokale Vorschau</header>
-    <main>
-      <!-- Absatz 1: Absatzvorlage "Zählerstand-Widget" -->
-      <div class="teaser" style="background:#e5f0f9;padding:20px">
-        <h2>Zählerstand melden</h2>
-        <p>Melde uns deinen aktuellen Gaszählerstand – so bekommst du eine genaue Abrechnung.</p>
-        <div id="zaehlerstand-widget"></div>
-        <script type="module" src="/src/main.ts"></script>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zählerstand melden – lokale Vorschau</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; color: #1a1a1a; background: #f6f7f9; }
+    header { background: #004b87; color: #fff; padding: 16px 24px; font-weight: 600; }
+    main { max-width: 960px; margin: 0 auto; padding: 24px; display: grid; gap: 24px; }
+    .teaser { background: #e5f0f9; padding: 20px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<header>GASAG Kundenportal · lokale Vorschau</header>
+<main>
+  <!-- Absatz 1: Gas-Zählerstand mit Verlauf -->
+  <section class="teaser">
+    <h2>Zählerstand melden</h2>
+    <p>Melde uns deinen aktuellen Gaszählerstand – so bekommst du eine genaue Abrechnung.</p>
+    <div
+      data-zaehlerstand-widget
+      data-energy-type="gas"
+      data-show-history="true"
+      data-success-message="Danke! Dein Gaszählerstand wurde erfolgreich übermittelt."
+    ></div>
+  </section>
 
-      <!-- Absatz 2: Absatzvorlage "Zählerstand-Widget" -->
-      <div class="teaser" style="background:#e5f0f9;padding:20px">
-        <h2>Stromzähler ablesen</h2>
-        <p>Auch für deinen Stromzähler kannst du den Stand hier direkt übermitteln.</p>
-        <div id="zaehlerstand-widget"></div>
-        <script type="module" src="/src/main.ts"></script>
-      </div>
-    </main>
-  </body>
+  <!-- Absatz 2: Stromzähler ohne Verlauf -->
+  <section class="teaser">
+    <h2>Stromzähler ablesen</h2>
+    <p>Auch für deinen Stromzähler kannst du den Stand hier direkt übermitteln.</p>
+    <div
+      data-zaehlerstand-widget
+      data-energy-type="strom"
+      data-show-history="false"
+      data-success-message="Danke! Dein Stromzählerstand ist bei uns eingegangen."
+    ></div>
+  </section>
+</main>
+
+<!-- Skript einmalig am Ende einbinden: -->
+<script type="module" src="/src/main.ts"></script>
+</body>
 </html>
